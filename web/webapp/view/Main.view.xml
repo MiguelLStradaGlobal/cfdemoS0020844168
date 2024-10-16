@@ -1,11 +1,80 @@
 <mvc:View controllerName="com.xtendhr.web.controller.Main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:t="sap.ui.table"
+	xmlns:core="sap.ui.core"
     xmlns="sap.m">
     <Page id="page" title="{i18n>title}">
         <content>
             <Label id="idInpLbl" text= "GET Service Path :"/><Input id="idInput" />
             <Button id="idBtn" press="onCallSRV" text="Call Service" />
             <TextArea id="idTextArea" growing="true" width="100%" />
+
+
+
+            <Panel class="sapUiResponsiveContentPadding" id="panelid">
+            	<HBox renderType="Bare" id="hboxtable">
+				
+				
+				<t:Table
+					id="table1"
+					selectionMode="Single"
+					ariaLabelledBy="title"
+                    rowSelectionChange = "onpressRow"
+					rows="{
+						path: '/companyShirts'
+					}">
+					<t:extension>
+						<OverflowToolbar id="infobar" style="Clear">
+							<Title id="title" text="Custom Shirt"/>
+							<OverflowToolbarButton tooltip="Add" type="Transparent" text="Add" icon="sap-icon://add" press="onAdd"/>
+						</OverflowToolbar>
+					</t:extension>
+					<t:columns>
+                        <t:Column
+                            id="column0"
+							sortProperty="externalCode"
+							filterProperty="externalCode">
+							<Text id="columCode" text="External Code" />
+							<t:template>
+								<Text id="textCode" text="{externalCode}" wrapping="false" />
+							</t:template>
+						</t:Column>
+						<t:Column
+                            id="column1"
+							sortProperty="cust_Employee"
+							filterProperty="cust_Employee">
+							<Text id="columEmployee" text="Employee" />
+							<t:template>
+								<Text id="textEmployee" text="{cust_Employee}" wrapping="false" />
+							</t:template>
+						</t:Column>
+                        <t:Column
+                            id="column2"
+							sortProperty="cust_ShirtSize"
+							filterProperty="cust_ShirtSize">
+							<Text id="columSize" text="Size" />
+							<t:template>
+								<Text id="textSize" text="{cust_ShirtSize}" wrapping="false" />
+							</t:template>
+						</t:Column>
+                        <t:Column
+                            id="column3"
+							sortProperty="cust_ShirtColor"
+							filterProperty="cust_ShirtColor">
+							<Text id="columColor" text="Color" />
+							<t:template>
+								<Text id="textcolor" text="{cust_ShirtColor}" wrapping="false" />
+							</t:template>
+						</t:Column>
+					</t:columns>
+
+					
+				</t:Table>
+                </HBox>
+            </Panel>
+
+
+
         </content>
     </Page>
 </mvc:View>

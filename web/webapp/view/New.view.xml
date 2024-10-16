@@ -1,0 +1,70 @@
+<mvc:View controllerName="com.xtendhr.web.controller.New"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core">
+
+    <Page id="pageNew" title="Item">
+        <content>
+            <Toolbar id="headerNew">
+                    <Bar id = "headerbarNew">
+                        <contentRight>
+                            <Button id="saveNew" text="Save" type="Emphasized" visible="true" press="handleSavePress" />
+                            <Button id="cancelNew" text="Cancel" visible="true" press="handleCancelPress" />
+                        </contentRight>
+                    </Bar>
+            </Toolbar>
+            <VBox id = 'formvboxNew' class="sapUiSmallMargin">
+                <f:Form id="FormDisplay354New"
+                    editable="false">
+                    <f:title>
+                        <core:Title text="Custom Shirt" id='formtitleNew' />
+                    </f:title>
+                    <f:layout>
+                        <f:ResponsiveGridLayout id='responsibegridNew'
+                            labelSpanXL="3"
+                            labelSpanL="3"
+                            labelSpanM="3"
+                            labelSpanS="12"
+                            adjustLabelSpan="false"
+                            emptySpanXL="4"
+                            emptySpanL="4"
+                            emptySpanM="4"
+                            emptySpanS="0"
+                            columnsXL="1"
+                            columnsL="1"
+                            columnsM="1"
+                            singleContainerFullSize="false" />
+                    </f:layout>
+                    <f:formContainers>
+                        <f:FormContainer id='formcontainerNew'>
+                            <f:formElements>
+                                <f:FormElement label="ExternalCode" id='form1New'>
+                                    <f:fields>
+                                        <TextArea value="{/selectedItem/externalCode}" id="nameTextNew" editable="false"  />
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement label="Employee" id='form2New'>
+                                    <f:fields>
+                                        <TextArea value="{/selectedItem/cust_Employee}" id="employeeTextNew" editable="true"/>
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement label="Size" id='form3New'>
+                                    <f:fields>
+                                        <TextArea value="{/selectedItem/cust_ShirtSize}" id="sizeTextNew" editable="true"/>
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement label="Color" id='form4New'>
+                                    <f:fields>
+                                        <TextArea value="{/selectedItem/cust_ShirtColor}" id="colorTextNew" editable="true" />
+                                    </f:fields>
+                                </f:FormElement>
+                            </f:formElements>
+                        </f:FormContainer>
+                    </f:formContainers>
+                </f:Form>
+            </VBox>
+            </content>
+    </Page>
+</mvc:View>

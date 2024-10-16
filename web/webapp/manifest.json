@@ -67,7 +67,11 @@
         "dataSource": "mainService",
         "preload": true,
         "settings": {}
-      }
+      },
+      "settings": {
+            "dataSource": "",
+            "settings": {}
+        }
     },
     "resources": {
       "css": [
@@ -93,7 +97,21 @@
           "target": [
             "TargetMain"
           ]
-        }
+        },
+        {
+					"pattern": "ItemView",
+					"name": "ItemView",
+					"target": [
+						"ItemView"
+					]
+				},
+        {
+					"pattern": "NewView",
+					"name": "NewView",
+					"target": [
+						"NewView"
+					]
+				}
       ],
       "targets": {
         "TargetMain": {
@@ -102,7 +120,17 @@
           "clearControlAggregation": false,
           "viewId": "Main",
           "viewName": "Main"
-        }
+        },
+        "ItemView": {
+					"viewType": "XML",
+          "viewId": "Item",
+					"viewName": "Item"
+				},
+        "NewView": {
+					"viewType": "XML",
+          "viewId": "New",
+					"viewName": "New"
+				}
       }
     },
     "rootView": {

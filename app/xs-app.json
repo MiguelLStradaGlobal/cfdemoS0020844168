@@ -3,12 +3,13 @@
   "routes": [
     {
       "source": "^/srv/(.*)$",
-      "target": "$1",
-      "destination": "srv-api",
-      "csrfProtection": false
+      "destination": "srv",
+      "authenticationType": "xsuaa",
+      "csrfProtection": false,
+      "target": "$1"
     },
     {
-      "source": "^/(.*)$",
+      "source": "^(.*)$",
       "target": "$1",
       "service": "html5-apps-repo-rt",
       "authenticationType": "xsuaa"

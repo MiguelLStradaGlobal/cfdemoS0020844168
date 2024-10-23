@@ -8,7 +8,7 @@ const { retrieveJwt } = require('@sap-cloud-sdk/connectivity');
 const { JWTStrategy } = require("@sap/xssec");
 const { stdout } = require("process");
 const JWStrategy = require("@sap/xssec").JWTStrategy;
-const services = xsenv.getServices({ uaa:"cfdemoS0023961268-xsuaa" }, { dest: { label: 'destination' } }) ; // XSUAA service & destination
+const services = xsenv.getServices({ uaa:"cfdemo268-xsuaa" }, { dest: { label: 'destination' } }) ; // XSUAA service & destination
 
 
 
@@ -68,12 +68,12 @@ app.get("/sfodata", async function(req, res,next){
         
         let res1 = await httpClient.executeHttpRequest(
             {
-                destinationName: 'sfodata',
+                destinationName: 'sfodatatech',
                 jwt: retrieveJwt(req)
             },
             {
                 method: 'GET',
-                url: req.query.path || '/'
+                url: '/odata/v2/' + (req.query.path || '/')
 
             }
         );
@@ -94,12 +94,12 @@ app.post("/edit", async function(req, res,next){
         
         let res1 = await httpClient.executeHttpRequest(
             {
-                destinationName: 'sfodata',
+                destinationName: 'sfodataapi',
                 jwt: retrieveJwt(req)
             },
             {
                 method: 'POST',
-                url: req.query.path || '/',
+                url: '/odata/v2/' + (req.query.path || '/'),
                 data: req.body
 
             }
@@ -121,12 +121,12 @@ app.delete("/delete", async function(req, res,next){
         
         let res1 = await httpClient.executeHttpRequest(
             {
-                destinationName: 'sfodata',
+                destinationName: 'sfodataapi',
                 jwt: retrieveJwt(req)
             },
             {
                 method: 'DELETE',
-                url: req.query.path || '/',
+                url: '/odata/v2/' + (req.query.path || '/')
                 //data: req.body
 
             }
@@ -148,12 +148,12 @@ app.post("/create", async function(req, res,next){
         
         let res1 = await httpClient.executeHttpRequest(
             {
-                destinationName: 'sfodata',
+                destinationName: 'sfodataapi',
                 jwt: retrieveJwt(req)
             },
             {
                 method: 'POST',
-                url: req.query.path  || '/',
+                url: '/odata/v2/' + (req.query.path || '/'),
                 data: req.body
 
             }
